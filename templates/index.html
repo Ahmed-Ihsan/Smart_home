@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sensor Data</title>
+  </head>
+  <body>
+    <h1>Sensor Data</h1>
+    <a href="{{ url_for('clear_data') }}">Clear Data</a>
+    {% for node, sensor_readings in data_by_raspberry.items() %}
+    <h3>Node: {{ node }}</h3>
+    <ul>
+      {% for sensor, reading in sensor_readings.items() %}
+      <li>Sensor: {{ sensor }}, Reading: {{ reading }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </body>
+</html>
